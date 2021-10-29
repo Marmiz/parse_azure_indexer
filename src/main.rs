@@ -25,7 +25,8 @@ fn main() {
     println!("Either customixe that file or pass a different one from the command line");
     println!("For more example try --help");
 
-    az_metadata::read_toml_file(opt.config).expect("Error reading toml");
+    let azure = az_metadata::read_toml_file(opt.config).expect("Error reading toml");
+    dbg!(azure);
 
     // let file = std::fs::File::open("source.json").expect("Error opening the file");
     // let reader = std::io::BufReader::new(file);

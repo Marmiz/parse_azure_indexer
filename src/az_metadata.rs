@@ -8,11 +8,10 @@ pub struct AzureMeta {
     api_version: String,
 }
 
-pub fn read_toml_file(file: PathBuf) -> Result<(), Box<dyn Error>> {
+pub fn read_toml_file(file: PathBuf) -> Result<AzureMeta, Box<dyn Error>> {
     let content = std::fs::read_to_string(file)?;
 
     let def: AzureMeta = toml::from_str(&content)?;
-    dbg!(def);
 
-    Ok(())
+    Ok(def)
 }
